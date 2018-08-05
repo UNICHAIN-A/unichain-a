@@ -1,12 +1,14 @@
 {
-  "name": "unichain-frontend",
+  "name": "unichain-a",
   "version": "0.1.0",
   "private": true,
+  "devDependencies": {
+    "react-scripts": "^1.1.4"
+  },
   "dependencies": {
     "react": "^16.4.2",
     "react-bootstrap": "^0.32.1",
-    "react-dom": "^16.4.2",
-    "react-scripts": "1.1.4"
+    "react-dom": "^16.4.2"
   },
   "scripts": {
     "start": "react-scripts start",
