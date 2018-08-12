@@ -1,0 +1,4 @@
+applications:
+  - name: unichain-a
+    random-route: true
+    memory: 128M
