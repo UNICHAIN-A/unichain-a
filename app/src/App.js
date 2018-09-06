@@ -1,7 +1,12 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+
 import logo from "./logo.svg";
 import "./App.css";
 import { ListGroup, ListGroupItem } from "react-bootstrap";
+
+//Actions
+import { fetchInfo } from "./actions/login";
 
 class App extends Component {
   constructor(props) {
@@ -12,11 +17,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    return fetch("/api/hello")
-      .then(response => response.json())
-      .then(result => {
-        this.setState({ message: result.message });
-      });
+    this.props.fetchInfo();
   }
   render() {
     return (
@@ -28,7 +29,7 @@ class App extends Component {
               UniChain-A: Blockchain Attendance "Present!"
             </h1>
             <h1 className="App-title">
-              Message from API: <b>{this.state.message}</b>
+              Message from API: <b>{this.props.message}</b>
             </h1>
           </header>
         </div>
@@ -46,4 +47,13 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => ({
+  message: state.login.message
+});
+const mapDispatchToProps = dispatch => ({
+  fetchInfo: () => dispatch(fetchInfo())
+});
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);
