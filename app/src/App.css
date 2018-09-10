@@ -30,3 +30,65 @@
     transform: rotate(360deg);
   }
 }
+
+/* -- css for student pages  by Anil */
+.Student-container{
+  padding: 30px;
+}
+.Present-logo{
+  height: 80px;
+}
+.Main-link{
+  text-transform: uppercase;
+  font-size: 1.5em;
+  color: #297283 !important;
+  text-decoration: underline;
+  padding-top: 20px;
+  display: block;
+}
+.Main-link:hover{
+  text-decoration: underline;
+  color: #265c69 !important;
+}
+.Student-message {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.Student-message > p{
+  text-align: center;
+  font-size: 1em;
+  color: #297283 !important;
+  line-height: 19px;
+  font-weight: 900;
+  padding-bottom: 10px;
+}
+.Main-button-wrapper{
+  padding:50px;
+}
+.Main-button{
+  padding: 10px;
+  color: #fff !important;
+  font-size: 1.2em;
+  font-weight: 900;
+  background: #297283;
+  border-radius: 0;
+  width: 45%;
+  transition: all 0.2s linear;
+  border: none !important;
+}
+.Main-button:hover{
+  background: #265c69;
+}
+@media screen and (max-width:991px){
+  .Present-logo-wrapper{
+    text-align: center;
+  }
+  .Present-logo-wrapper > .Present-logo{
+    display: inline;
+  }
+}
+@media screen and (max-width:677px){
+  .Main-button{
+    width: 90%;
+  }
+}

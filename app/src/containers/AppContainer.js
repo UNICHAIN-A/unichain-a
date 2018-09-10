@@ -41,7 +41,7 @@ class AppContainer extends Component {
       );
     });
   }
-  _renderClasses() {
+  _renderClassess() {
     return this.props.classes.map((item, index) => {
       return (
         <tr key={index}>
@@ -53,6 +53,18 @@ class AppContainer extends Component {
       );
     });
   }
+  _renderClasses() {
+    
+      return (
+        <tr>
+        <td>class1</td>
+        <td>Class2</td>
+        <td>Class2</td>
+        <td>Class2</td>
+      </tr>
+      );
+  
+  }
   render() {
     console.log(this.props);
     return (
@@ -61,7 +73,7 @@ class AppContainer extends Component {
           <header className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
             <h1 className="App-title">
-              UniChain-A: Blockchain Attendance "Present!"
+              UniChain-A: Blockchain Attendance "Present!!"
             </h1>
           </header>
         </div>
