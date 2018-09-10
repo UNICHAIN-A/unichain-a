@@ -32,6 +32,12 @@
 }
 
 /* -- css for student pages  by Anil */
+.Margin-top-0{
+  margin-top:0 !important;
+}
+.Margin-bottom-0{
+  margin-bottom: 0px !important;
+}
 .Student-container{
   padding: 30px;
 }
@@ -63,18 +69,19 @@
   padding-bottom: 10px;
 }
 .Main-button-wrapper{
-  padding:50px;
+  padding:50px 0;
 }
 .Main-button{
   padding: 10px;
   color: #fff !important;
-  font-size: 1.2em;
+  font-size: 1em;
   font-weight: 900;
   background: #297283;
   border-radius: 0;
-  width: 45%;
+  width: 52%;
   transition: all 0.2s linear;
   border: none !important;
+  text-transform: uppercase;
 }
 .Main-button:hover{
   background: #265c69;
@@ -87,8 +94,44 @@
     display: inline;
   }
 }
-@media screen and (max-width:677px){
-  .Main-button{
+.Qr-code-placeholder{
+  display: inline-block;
+  padding: 10px;
+  background: #bfbfbf;
+  margin-top: 30px;
+  width: 44%;
+  font-size: 1.5em;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+}
+.Back-button-wrapper {
+  position: relative;
+  height: 30px;
+}
+.Back-button {
+  position: absolute;
+  top: -23px;
+  right: 10px;
+  padding: 5px 10px;
+  color: #fff !important;
+  font-size: 0.9em;
+  font-weight: 900;
+  background: #297283;
+}
+.Back-button:hover{
+  background: #265c69;
+}
+@media screen and (max-width:767px){
+  .Main-button,.Qr-code-placeholder{
     width: 90%;
+    white-space: normal;
+  }
+  .Back-button-wrapper {
+    height: 70px;
+}
+  .Back-button{
+    position: relative;
+    display: inline;
+    top: 20px;
   }
 }
