@@ -12,17 +12,6 @@ import { ListGroup, ListGroupItem, Table, Grid, Col } from "react-bootstrap";
 
 class AppContainer extends Component {
 
-    _renderStudents() {
-    
-      return (
-        <tr>
-        <td>class11</td>
-        <td>Class2</td>
-        <td>Class2</td>
-      </tr>
-      );
-  
-  }
   render() {
     console.log(this.props);
     return (
