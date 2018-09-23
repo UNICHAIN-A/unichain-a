@@ -12,6 +12,7 @@
   "dependencies": {
     "concurrently": "^3.6.1",
     "express": "^4.16.3",
+    "react-router-dom": "^4.3.1",
     "semantic-ui": "^2.3.3"
   },
   "devDependencies": {

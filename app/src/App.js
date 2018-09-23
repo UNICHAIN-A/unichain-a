@@ -1,14 +1,19 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-
-import logo from "./logo.svg";
+import { Router, Route, Switch } from "react-router-dom";
+import createBrowserHistory from "history/createBrowserHistory";
 import "./App.css";
-import { ListGroup, ListGroupItem } from "react-bootstrap";
+import AppContainer from "./containers/AppContainer";
+import LoginContainer from "./containers/LoginContainer";
+import Login from "./components/Login/Login";
+import StudentContainer from "./containers/StudentContainer";
+import ScanCode from "./components/Student/ScanCode";
+import Session from "./components/Student/Session";
+import TutorContainer from "./containers/TutorContainer";
+import CreateSession from "./components/Tutor/CreateSession";
+import SessionCode from "./components/Tutor/SessionCode";
 
-//Actions
-import { fetchInfo } from "./actions/login";
-
-class App extends Component {
+const newHistory = createBrowserHistory();
+export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -16,44 +21,35 @@ class App extends Component {
     };
   }
 
-  componentDidMount() {
-    this.props.fetchInfo();
-  }
+  componentDidMount() {}
   render() {
     return (
-      <div>
-        <div className="App">
-          <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <h1 className="App-title">
-              UniChain-A: Blockchain Attendance "Present!"
-            </h1>
-            <h1 className="App-title">
-              Message from API: <b>{this.props.message}</b>
-            </h1>
-          </header>
-        </div>
-        <ListGroup>
-          <ListGroupItem header="Supervisor">Alessio Bonti</ListGroupItem>
-          <ListGroupItem header="Team Lead">Richard McGann</ListGroupItem>
-          <ListGroupItem header="Product Owner">Suresh Adepu</ListGroupItem>
-          <ListGroupItem header="Backend Developer">Chandra</ListGroupItem>
-          <ListGroupItem header="Backend Developer">Anil</ListGroupItem>
-          <ListGroupItem header="Frontend Developer">Ahsan Tariq</ListGroupItem>
-          <ListGroupItem header="UI/UX Designer">Bansri Modi</ListGroupItem>
-        </ListGroup>
-      </div>
+      <Router history={newHistory}>
+        <Switch>
+          <Route exact path="/" component={AppContainer} />
+          <Route exact path="/login" component={LoginContainer} />
+          <Route
+            exact
+            path="/login/staff"
+            render={props => {
+              return <Login loginName={"Staff"} history={newHistory} />;
+            }}
+          />
+          <Route
+            exact
+            path="/login/student"
+            render={props => {
+              return <Login loginName={"Student"} history={newHistory} />;
+            }}
+          />
+          <Route exact path="/student" component={StudentContainer} />
+          <Route exact path="/student/scancode" component={ScanCode} />
+          <Route exact path="/student/welcome" component={Session} />
+          <Route exact path="/staff" component={TutorContainer} />
+          <Route exact path="/staff/create-session" component={CreateSession} />
+          <Route exact path="/staff/session-code" component={SessionCode} />
+        </Switch>
+      </Router>
     );
   }
 }
-
-const mapStateToProps = state => ({
-  message: state.login.message
-});
-const mapDispatchToProps = dispatch => ({
-  fetchInfo: () => dispatch(fetchInfo())
-});
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App);
